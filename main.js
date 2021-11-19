@@ -4,6 +4,8 @@ toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
+let antal = 13;
+
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
@@ -22,7 +24,7 @@ window.onclick = function(event) {
 
 const para = document.querySelector('p');
 let count = 0;
-let antal = 0;
+
 
 function restart() {
     location.reload();
@@ -208,10 +210,10 @@ EvilCircle.prototype.collisionDetect = function() {
 };
 
 
-
 // define array to store balls and populate it
 
 const balls = [];
+
 
 while (balls.length < antal) {
     const size = random(10, 20);
@@ -231,6 +233,7 @@ while (balls.length < antal) {
 
     para.textContent = 'Bollar kvar: ' + count;
 }
+
 
 // define loop that keeps drawing the scene constantly
 

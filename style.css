@@ -35,6 +35,11 @@ p {
     text-shadow: 0 0 1px rgba(152, 159, 250, 0.541);
 }
 
+pantal {
+    position: absolute;
+    visibility: hidden;
+}
+
 #restart {
     position: absolute;
     font-size: 2rem;
