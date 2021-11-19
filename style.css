@@ -44,6 +44,7 @@ p {
     color: whitesmoke;
     background-color: rgba(12, 10, 9, 0.226);
     border-style: groove;
+    cursor: pointer;
 }
 
 h2 {
@@ -67,4 +68,62 @@ h2 {
     border-style: groove;
     width: auto;
     height: 60px;
+}
+
+
+/* innan */
+
+.dropbtn {
+    background-color: #c7452e7a;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #c7452e7a;
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    /* background-color: #f1f1f1; */
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+#easy,
+#medium,
+#hard {
+    font-size: 1rem;
+    margin: 0;
+    color: whitesmoke;
+    background-color: rgba(12, 10, 9, 0.226);
+    border-style: groove;
+    width: auto;
+    height: 40px;
 }

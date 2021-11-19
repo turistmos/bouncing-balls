@@ -11,8 +11,16 @@
     <h1> Fredriks studsande bollar</h1>
     <p></p>
 
-    <button id="lätt" onclick="lätt()">lätt</button>
-    <button id="medel" onclick="medel()">meddel</button>
+    <!-- <button id="lätt" onclick="lätt()">lätt</button>
+    <button id="medel" onclick="medel()">meddel</button> -->
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Mode</button>
+        <div id="myDropdown" class="dropdown-content">
+            <button id="easy" onclick="easy()">Easy</button>
+            <button id="medium" onclick="medium()">Medium</button>
+            <button id="hard" onclick="hard()">Hard</button>
+        </div>
+    </div>
     <h2>Grattis!</h2>
     <button id="restart" onclick="restart()">Restart</button>
     <canvas></canvas>
