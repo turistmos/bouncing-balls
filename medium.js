@@ -7,28 +7,11 @@ function myFunction() {
 
 
 function easy() {
-    while (balls.length > 10) {
-        const size = random(10, 20);
-        let ball = new Ball(
-            // ball position always drawn at least one ball width
-            // away from the edge of the canvas, to avoid drawing errors
-            random(0 + size, width - size),
-            random(0 + size, height - size),
-            random(-7, 7),
-            random(-7, 7),
-            true,
-            'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
-            size
-        );
-        balls.push(ball);
-        count++;
-
-        para.textContent = 'Bollar kvar: ' + count;
-    }
+    location.replace("index.html");
 }
 
 function medium() {
-    location.replace("medium.html");
+
 }
 
 function hard() {
@@ -208,23 +191,6 @@ EvilCircle.prototype.setControls = function() {
             location.reload();
         } else if (e.key === "1") {
 
-            const size = random(10, 20);
-            let ball = new Ball(
-                // ball position always drawn at least one ball width
-                // away from the edge of the canvas, to avoid drawing errors
-                random(0 + size, width - size),
-                random(0 + size, height - size),
-                random(-7, 7),
-                random(-7, 7),
-                true,
-                'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
-                size
-            );
-            balls.push(ball);
-            count++;
-
-            para.textContent = 'Bollar kvar: ' + count;
-
         }
     };
 };
@@ -261,7 +227,6 @@ EvilCircle.prototype.collisionDetect = function() {
 // define array to store balls and populate it
 
 const balls = [];
-
 
 
 while (balls.length < antal) {

@@ -132,3 +132,8 @@ h2 {
     width: auto;
     height: 40px;
 }
+
+input {
+    position: absolute;
+    visibility: hidden;
+}
