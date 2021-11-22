@@ -1,3 +1,11 @@
+var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+    var d = new Date();
+    var t = d.toLocaleTimeString();
+    document.getElementById("demo").innerHTML = t;
+}
+
 // define variable for ball count paragraph
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -5,9 +13,9 @@ function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-
 function easy() {
-    while (balls.length > 10) {
+    document.querySelector(".dropdown").style.visibility = "hidden";
+    for (let i = 0; i < 5; i++) {
         const size = random(10, 20);
         let ball = new Ball(
             // ball position always drawn at least one ball width
@@ -28,11 +36,47 @@ function easy() {
 }
 
 function medium() {
-    location.replace("medium.html");
+    document.querySelector(".dropdown").style.visibility = "hidden";
+    for (let i = 0; i < 10; i++) {
+        const size = random(10, 20);
+        let ball = new Ball(
+            // ball position always drawn at least one ball width
+            // away from the edge of the canvas, to avoid drawing errors
+            random(0 + size, width - size),
+            random(0 + size, height - size),
+            random(-7, 7),
+            random(-7, 7),
+            true,
+            'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
+            size
+        );
+        balls.push(ball);
+        count++;
+
+        para.textContent = 'Bollar kvar: ' + count;
+    }
 }
 
 function hard() {
+    document.querySelector(".dropdown").style.visibility = "hidden";
+    for (let i = 0; i < 15; i++) {
+        const size = random(10, 20);
+        let ball = new Ball(
+            // ball position always drawn at least one ball width
+            // away from the edge of the canvas, to avoid drawing errors
+            random(0 + size, width - size),
+            random(0 + size, height - size),
+            random(-7, 7),
+            random(-7, 7),
+            true,
+            'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
+            size
+        );
+        balls.push(ball);
+        count++;
 
+        para.textContent = 'Bollar kvar: ' + count;
+    }
 }
 //ange hur många bollar det ska vara med.
 let bollar = document.getElementById("bollar").value;
@@ -207,24 +251,24 @@ EvilCircle.prototype.setControls = function() {
         } else if (e.key === "r") { //restart
             location.reload();
         } else if (e.key === "1") {
+            for (let i = 0; i < 5; i++) {
+                const size = random(10, 20);
+                let ball = new Ball(
+                    // ball position always drawn at least one ball width
+                    // away from the edge of the canvas, to avoid drawing errors
+                    random(0 + size, width - size),
+                    random(0 + size, height - size),
+                    random(-7, 7),
+                    random(-7, 7),
+                    true,
+                    'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
+                    size
+                );
+                balls.push(ball);
+                count++;
 
-            const size = random(10, 20);
-            let ball = new Ball(
-                // ball position always drawn at least one ball width
-                // away from the edge of the canvas, to avoid drawing errors
-                random(0 + size, width - size),
-                random(0 + size, height - size),
-                random(-7, 7),
-                random(-7, 7),
-                true,
-                'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
-                size
-            );
-            balls.push(ball);
-            count++;
-
-            para.textContent = 'Bollar kvar: ' + count;
-
+                para.textContent = 'Bollar kvar: ' + count;
+            }
         }
     };
 };
@@ -246,10 +290,14 @@ EvilCircle.prototype.collisionDetect = function() {
             }
 
             if (count == 0) {
-                document.querySelector("button").style.color = "green";
+                // document.querySelector("button").style.color = "green";
                 document.querySelector("h2").style.visibility = "visible";
                 document.querySelector("p").style.color = "green";
                 document.querySelector("h1").style.color = "green";
+                document.querySelector(".dropdown").style.visibility = "unset";
+                clearInterval(myVar);
+
+
 
             }
 
