@@ -1,8 +1,8 @@
 var myVar = setInterval(myTimer, 1000);
+var counter = 0;
 
 function myTimer() {
-    var d = new Date();
-    var t = d.toLocaleTimeString();
+    t = ++counter
     document.getElementById("demo").innerHTML = t;
 }
 
@@ -14,6 +14,7 @@ function myFunction() {
 }
 
 function easy() {
+    counter = 0;
     document.querySelector(".dropdown").style.visibility = "hidden";
     for (let i = 0; i < 5; i++) {
         const size = random(10, 20);
