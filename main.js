@@ -14,6 +14,12 @@ function myFunction() {
 }
 
 function easy() {
+
+    document.querySelector("h2").style.visibility = "hidden";
+    document.querySelector("p").style.color = "transparent";
+    document.querySelector("h1").style.color = "transparent";
+    document.querySelector(".dropdown").style.visibility = "unset";
+
     counter = 0;
     document.querySelector(".dropdown").style.visibility = "hidden";
     for (let i = 0; i < 5; i++) {
