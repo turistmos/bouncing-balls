@@ -2,11 +2,12 @@
 var counter = 0;
 var myVar = setInterval(myTimer, 1000);
 let storlek = 20;
+let stor;
 
 function myTimer() {
     if (count > 0) {
         t = ++counter
-        document.getElementById("demo").innerHTML = t;
+        document.getElementById("klocka").innerHTML = t;
     }
 
 }
@@ -21,12 +22,14 @@ function myFunction() {
 
 function easy() {
     counter = 0;
+    stor = 20;
     document.querySelector("h2").style.visibility = "hidden";
     document.querySelector("p").style.color = "transparent";
     document.querySelector("h1").style.color = "transparent";
     document.querySelector(".dropdown").style.visibility = "hidden";
+    document.querySelector("#klocka").style.visibility = "unset";
     for (let i = 0; i < 5; i++) {
-        const size = random(10, 20);
+        const size = random(stor, 30);
         let ball = new Ball(
             // ball position always drawn at least one ball width
             // away from the edge of the canvas, to avoid drawing errors
@@ -49,12 +52,14 @@ function easy() {
 
 function medium() {
     counter = 0;
+    stor = 10;
     document.querySelector("h2").style.visibility = "hidden";
     document.querySelector("p").style.color = "transparent";
     document.querySelector("h1").style.color = "transparent";
     document.querySelector(".dropdown").style.visibility = "hidden";
+    document.querySelector("#klocka").style.visibility = "unset";
     for (let i = 0; i < 10; i++) {
-        const size = random(10, 20);
+        const size = random(stor, 20);
         let ball = new Ball(
             // ball position always drawn at least one ball width
             // away from the edge of the canvas, to avoid drawing errors
@@ -75,12 +80,14 @@ function medium() {
 
 function hard() {
     counter = 0;
+    stor = 5;
     document.querySelector("h2").style.visibility = "hidden";
     document.querySelector("p").style.color = "transparent";
     document.querySelector("h1").style.color = "transparent";
     document.querySelector(".dropdown").style.visibility = "hidden";
+    document.querySelector("#klocka").style.visibility = "unset";
     for (let i = 0; i < 15; i++) {
-        const size = random(10, 20);
+        const size = random(stor, 20);
         let ball = new Ball(
             // ball position always drawn at least one ball width
             // away from the edge of the canvas, to avoid drawing errors
@@ -216,7 +223,7 @@ Ball.prototype.collisionDetect = function() {
 function EvilCircle(x, y, exists) {
     Shape.call(this, x, y, 20, 20, exists);
 
-    this.color = 'white';
+    this.color = 'green';
     this.size = storlek;
 }
 
@@ -229,7 +236,7 @@ EvilCircle.prototype.constructor = EvilCircle;
 EvilCircle.prototype.draw = function() {
     ctx.beginPath();
     ctx.strokeStyle = this.color;
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 4;
     ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.stroke();
 };
@@ -261,13 +268,13 @@ EvilCircle.prototype.setControls = function() {
     var _this = this;
     window.onkeydown = function(e) {
         if (e.key === "ArrowLeft") { //vänster
-            _this.x -= _this.velX;
+            _this.x -= _this.velX * 1.5;
         } else if (e.key === 'ArrowRight') { //höger
-            _this.x += _this.velX;
+            _this.x += _this.velX * 1.5;
         } else if (e.key === 'ArrowUp') { //uppåt
-            _this.y -= _this.velY;
+            _this.y -= _this.velY * 1.5;
         } else if (e.key === 'ArrowDown') { //nedåt
-            _this.y += _this.velY;
+            _this.y += _this.velY * 1.5;
         } else if (e.key === "r") { //restart
             location.reload();
         } else if (e.key === "1") {
