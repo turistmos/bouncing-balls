@@ -8,10 +8,7 @@ function myTimer() {
         t = ++counter
         document.getElementById("demo").innerHTML = t;
     }
-    if (count == 0) {
-        t = t;
-        document.getElementById("demo").innerHTML = t;
-    }
+
 }
 
 
