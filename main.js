@@ -1,10 +1,19 @@
-var myVar = setInterval(myTimer, 1000);
+// var myVar = setInterval(myTimer, 1000);
 var counter = 0;
+var myVar = setInterval(myTimer, 1000);
+let storlek = 20;
 
 function myTimer() {
-    t = ++counter
-    document.getElementById("demo").innerHTML = t;
+    if (count > 0) {
+        t = ++counter
+        document.getElementById("demo").innerHTML = t;
+    }
+    if (count == 0) {
+        t = t;
+        document.getElementById("demo").innerHTML = t;
+    }
 }
+
 
 // define variable for ball count paragraph
 /* When the user clicks on the button, 
@@ -14,13 +23,10 @@ function myFunction() {
 }
 
 function easy() {
-
+    counter = 0;
     document.querySelector("h2").style.visibility = "hidden";
     document.querySelector("p").style.color = "transparent";
     document.querySelector("h1").style.color = "transparent";
-    document.querySelector(".dropdown").style.visibility = "unset";
-
-    counter = 0;
     document.querySelector(".dropdown").style.visibility = "hidden";
     for (let i = 0; i < 5; i++) {
         const size = random(10, 20);
@@ -39,10 +45,16 @@ function easy() {
         count++;
 
         para.textContent = 'Bollar kvar: ' + count;
+
+
     }
 }
 
 function medium() {
+    counter = 0;
+    document.querySelector("h2").style.visibility = "hidden";
+    document.querySelector("p").style.color = "transparent";
+    document.querySelector("h1").style.color = "transparent";
     document.querySelector(".dropdown").style.visibility = "hidden";
     for (let i = 0; i < 10; i++) {
         const size = random(10, 20);
@@ -65,6 +77,10 @@ function medium() {
 }
 
 function hard() {
+    counter = 0;
+    document.querySelector("h2").style.visibility = "hidden";
+    document.querySelector("p").style.color = "transparent";
+    document.querySelector("h1").style.color = "transparent";
     document.querySelector(".dropdown").style.visibility = "hidden";
     for (let i = 0; i < 15; i++) {
         const size = random(10, 20);
@@ -204,7 +220,7 @@ function EvilCircle(x, y, exists) {
     Shape.call(this, x, y, 20, 20, exists);
 
     this.color = 'white';
-    this.size = 20;
+    this.size = storlek;
 }
 
 EvilCircle.prototype = Object.create(Shape.prototype);
@@ -292,7 +308,7 @@ EvilCircle.prototype.collisionDetect = function() {
             if (distance < this.size + balls[j].size) {
                 balls[j].exists = false;
                 count--;
-                this.size -= 1; //gör evil större
+                this.size -= 1; //gör evil större/mindre
                 para.textContent = 'Bollar kvar: ' + count;
             }
 
@@ -302,7 +318,8 @@ EvilCircle.prototype.collisionDetect = function() {
                 document.querySelector("p").style.color = "green";
                 document.querySelector("h1").style.color = "green";
                 document.querySelector(".dropdown").style.visibility = "unset";
-                clearInterval(myVar);
+                // clearInterval(myVar);
+                evil.size = 20; //crashar om man inte har det här för att cirkeln blir för liten!
 
 
 
