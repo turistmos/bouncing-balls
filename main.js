@@ -263,9 +263,18 @@ EvilCircle.prototype.checkBounds = function() {
 };
 
 // define EvilCircle setControls method
+// this.update = function(){
+//     var vel = createVector(mouseX,mouseY);
+//     vel.sub(this.pos);
+//     vel.setMag(3);
+//     this.pos.add(mouse);
+
+// }
 
 EvilCircle.prototype.setControls = function() {
     var _this = this;
+
+
     window.onkeydown = function(e) {
         if (e.key === "ArrowLeft") { //vänster
             _this.x -= _this.velX * 1.5;

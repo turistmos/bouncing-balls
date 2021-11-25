@@ -139,7 +139,8 @@ input {
     visibility: hidden;
 }
 
-#demo {
+#klocka {
+    visibility: hidden;
     position: absolute;
     color: whitesmoke;
     font-size: 2rem;
