@@ -270,7 +270,6 @@ EvilCircle.prototype.checkBounds = function() {
 //     this.pos.add(mouse);
 
 // }
-
 EvilCircle.prototype.setControls = function() {
     var _this = this;
 
