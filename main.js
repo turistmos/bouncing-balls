@@ -135,12 +135,11 @@ function restart() {
 // setup canvas
 
 const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
-
+var ctx = canvas.getContext('2d');
 const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
 
-// function to generate random number
+
 
 function random(min, max) {
     const num = Math.floor(Math.random() * (max - min)) + min;
@@ -224,7 +223,7 @@ function EvilCircle(x, y, exists) {
     Shape.call(this, x, y, 20, 20, exists);
 
     this.color = 'green';
-    this.size = storlek;
+    this.size = 20;
 }
 
 EvilCircle.prototype = Object.create(Shape.prototype);
@@ -233,11 +232,13 @@ EvilCircle.prototype.constructor = EvilCircle;
 
 // define EvilCircle draw method
 
+
 EvilCircle.prototype.draw = function() {
     ctx.beginPath();
     ctx.strokeStyle = this.color;
     ctx.lineWidth = 4;
-    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.rect(this.x, this.y, this.size, 20);
+    // ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.stroke();
 };
 
@@ -270,6 +271,9 @@ EvilCircle.prototype.checkBounds = function() {
 //     this.pos.add(mouse);
 
 // }
+document.body.addEventListener('keydown', e => {
+    keydown = e.key;
+});
 EvilCircle.prototype.setControls = function() {
     var _this = this;
 
@@ -340,34 +344,8 @@ EvilCircle.prototype.collisionDetect = function() {
         }
     }
 };
-
-
 // define array to store balls and populate it
-
 const balls = [];
-
-
-
-while (balls.length < antal) {
-    const size = random(10, 20);
-    let ball = new Ball(
-        // ball position always drawn at least one ball width
-        // away from the edge of the canvas, to avoid drawing errors
-        random(0 + size, width - size),
-        random(0 + size, height - size),
-        random(-7, 7),
-        random(-7, 7),
-        true,
-        'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
-        size
-    );
-    balls.push(ball);
-    count++;
-
-    para.textContent = 'Bollar kvar: ' + count;
-}
-
-
 // define loop that keeps drawing the scene constantly
 
 let evil = new EvilCircle(random(0, width), random(0, height), true);
