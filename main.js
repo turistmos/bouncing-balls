@@ -4,16 +4,14 @@ var myVar = setInterval(myTimer, 1000);
 let storlek = 20;
 let stor;
 
+//timer
 function myTimer() {
     if (count > 0) {
         t = ++counter
         document.getElementById("klocka").innerHTML = t;
     }
-
 }
 
-
-// define variable for ball count paragraph
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -136,10 +134,10 @@ function restart() {
 
 const canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
+var img = document.getElementById("bild");
+
 const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
-
-
 
 function random(min, max) {
     const num = Math.floor(Math.random() * (max - min)) + min;
@@ -237,11 +235,9 @@ EvilCircle.prototype.draw = function() {
     ctx.beginPath();
     ctx.strokeStyle = this.color;
     ctx.lineWidth = 4;
-    ctx.rect(this.x, this.y, this.size, 20);
-    // ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.stroke();
 };
-
 
 // define EvilCircle checkBounds method
 
@@ -263,17 +259,6 @@ EvilCircle.prototype.checkBounds = function() {
     }
 };
 
-// define EvilCircle setControls method
-// this.update = function(){
-//     var vel = createVector(mouseX,mouseY);
-//     vel.sub(this.pos);
-//     vel.setMag(3);
-//     this.pos.add(mouse);
-
-// }
-document.body.addEventListener('keydown', e => {
-    keydown = e.key;
-});
 EvilCircle.prototype.setControls = function() {
     var _this = this;
 
@@ -320,14 +305,20 @@ EvilCircle.prototype.collisionDetect = function() {
             const dx = this.x - balls[j].x;
             const dy = this.y - balls[j].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < this.size + balls[j].size) {
-                balls[j].exists = false;
-                count--;
-                this.size -= 1; //gör evil större/mindre
-                para.textContent = 'Bollar kvar: ' + count;
+            if (this.size > 3) {
+                if (distance < this.size + balls[j].size) {
+                    balls[j].exists = false;
+                    count--;
+                    this.size -= 1; //gör evil större/mindre
+                    para.textContent = 'Bollar kvar: ' + count;
+                }
+            } else if (this.size <= 3) { //för att evil inte ska bli för liten och krascha spelet
+                if (distance < this.size + balls[j].size) {
+                    balls[j].exists = false;
+                    count--;
+                    para.textContent = 'Bollar kvar: ' + count;
+                }
             }
-
             if (count == 0) {
                 // document.querySelector("button").style.color = "green";
                 document.querySelector("h2").style.visibility = "visible";
